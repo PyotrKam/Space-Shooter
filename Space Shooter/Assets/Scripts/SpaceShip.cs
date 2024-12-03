@@ -62,25 +62,7 @@ namespace SpaceShooter
 
             m_Rigid.inertia = 1; //Set the inerial force, to make it easier to balance the balance of power
 
-        }
-
-        private void Update()
-        {
-            ThrustControl = 0;
-            TorqueControl = 0;
-
-
-            if (Input.GetKey(KeyCode.UpArrow)) ThrustControl = 1.0f;
-
-            if (Input.GetKey(KeyCode.DownArrow)) ThrustControl = -1.0f;
-
-            if (Input.GetKey(KeyCode.LeftArrow)) TorqueControl = 1.0f;
-
-            if (Input.GetKey(KeyCode.RightArrow)) TorqueControl = -1.0f;
-
-
-        }
-
+        }       
 
         private void FixedUpdate() //Update not in frames, but in a certain amount of time
         {
