@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     
     [SerializeField] private float m_ForwardOffset;
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (m_Target == null || m_Camera == null) return;
 
