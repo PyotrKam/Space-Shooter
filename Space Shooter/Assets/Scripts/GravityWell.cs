@@ -27,7 +27,13 @@ namespace SpaceShooter
 
         }
 
+    #if UNITY_EDITOR
+        private void OnValidate()
+        {
+            GetComponent<CircleCollider2D>().radius = m_Radius;
+        }
 
+    #endif
 
     }
 
