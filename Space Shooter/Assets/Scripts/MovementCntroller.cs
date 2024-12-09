@@ -13,7 +13,10 @@ namespace SpaceShooter
             Mobile       
         }
 
+
+
         [SerializeField] private SpaceShip m_TargetShip;
+        public void SetTargetShip(SpaceShip ship) => m_TargetShip = ship;
 
         [SerializeField] private VirtualJoystick m_MobileJoystick;
 
