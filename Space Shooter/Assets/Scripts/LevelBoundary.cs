@@ -5,27 +5,9 @@ using UnityEngine;
 
 namespace SpaceShooter
 {
-    public class LevelBoundary : MonoBehaviour
+    public class LevelBoundary : SingletonBase<LevelBoundary>
     {
-        #region Singletone
-        public static LevelBoundary Instance;
-
-        private void Awake()
-        {
-            if (Instance != null)
-            {
-                Debug.LogError("There is an object in scence LevelBoundary ");
-                Destroy(gameObject);
-                return;
-            }
-
-            Instance = this;
-
-            DontDestroyOnLoad(gameObject);
-
-            
-        }
-        #endregion
+        
 
         [SerializeField] private float m_Radius;
         public float Radius => m_Radius;
