@@ -10,6 +10,9 @@ namespace SpaceShooter
     /// </summary>
     public class Destructible : Entity
     {
+       [SerializeField] private GameObject explosionParticles;
+
+
         /// <summary>
         /// The object ignores damage
         /// </summary>
@@ -27,6 +30,8 @@ namespace SpaceShooter
         /// </summary>
         private int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
+
+        
         #endregion
 
         #region Unity Events
@@ -49,6 +54,7 @@ namespace SpaceShooter
 
             if (m_CurrentHitPoints <= 0)
             {
+                Explode();
                 OnDeath();
             }
 
@@ -59,11 +65,33 @@ namespace SpaceShooter
         /// </summary>
         protected virtual void OnDeath()
         {
+            Debug.Log(" Death");
             Destroy(gameObject);
             m_EventOnDeath?.Invoke();
         }
 
-        [SerializeField] private UnityEvent m_EventOnDeath;
+       private void Explode()
+        {
+            Debug.Log(" Explode");
+
+            if (explosionParticles != null)
+            {
+                GameObject explotion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+
+                //ParticleSystem particleSystem = explosionParticles.GetComponent<ParticleSystem>();
+
+                //particleSystem.Play();
+
+
+
+            }
+
+
+        }
+       
+
+
+            [SerializeField] private UnityEvent m_EventOnDeath;
         public UnityEvent EventOnDeath => m_EventOnDeath;
 
     }
