@@ -55,6 +55,7 @@ namespace SpaceShooter
             if (m_CurrentHitPoints <= 0)
             {
                 Explode();
+
                 OnDeath();
             }
 
@@ -72,18 +73,25 @@ namespace SpaceShooter
 
        private void Explode()
         {
-            Debug.Log(" Explode");
+            
 
             if (explosionParticles != null)
             {
+                
                 GameObject explotion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+                Debug.Log("Create an instance of the Particle System prefab at the object position");
 
-                //ParticleSystem particleSystem = explosionParticles.GetComponent<ParticleSystem>();
-
-                //particleSystem.Play();
-
+                ParticleSystem particleSystem = explosionParticles.GetComponent<ParticleSystem>();
+                Debug.Log("We get the Particle System component");
 
 
+                particleSystem.Play();
+                Debug.Log("Producing the Particle System");
+
+
+
+
+                //Debug.Log("Explode");
             }
 
 
