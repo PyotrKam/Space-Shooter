@@ -10,8 +10,7 @@ namespace SpaceShooter
     /// </summary>
     public class Destructible : Entity
     {
-       [SerializeField] private GameObject explosionParticles;
-
+       [SerializeField] private ParticleSystem explosionParticles;
 
         /// <summary>
         /// The object ignores damage
@@ -66,7 +65,7 @@ namespace SpaceShooter
         /// </summary>
         protected virtual void OnDeath()
         {
-            Debug.Log(" Death");
+            
             Destroy(gameObject);
             m_EventOnDeath?.Invoke();
         }
@@ -77,29 +76,17 @@ namespace SpaceShooter
 
             if (explosionParticles != null)
             {
+                ParticleSystem explosionInstance = Instantiate(explosionParticles, transform.position, Quaternion.identity);
+
+                explosionInstance.Play();
                 
-                GameObject explotion = Instantiate(explosionParticles, transform.position, Quaternion.identity);
-                Debug.Log("Create an instance of the Particle System prefab at the object position");
-
-                ParticleSystem particleSystem = explosionParticles.GetComponent<ParticleSystem>();
-                Debug.Log("We get the Particle System component");
-
-
-                particleSystem.Play();
-                Debug.Log("Producing the Particle System");
-
-
-
-
-                //Debug.Log("Explode");
             }
 
 
         }
        
 
-
-            [SerializeField] private UnityEvent m_EventOnDeath;
+        [SerializeField] private UnityEvent m_EventOnDeath;
         public UnityEvent EventOnDeath => m_EventOnDeath;
 
     }
