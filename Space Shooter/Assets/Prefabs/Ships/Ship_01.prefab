@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9044af72c334543be4db10fd637924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Nickname: Playe
+  m_Nickname: Player
   explosionParticles: {fileID: 257063671015119414, guid: 593e50e229723b64491e555b5e1451d6, type: 3}
   m_Indestructible: 0
   m_HitPoints: 100
