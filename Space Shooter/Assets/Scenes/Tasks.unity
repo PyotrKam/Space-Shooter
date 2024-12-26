@@ -3926,11 +3926,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 684050666607719901, guid: 8227d0ed2d4847645aac5c3f74798d4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.57
+      value: -6.65
       objectReference: {fileID: 0}
     - target: {fileID: 684050666607719901, guid: 8227d0ed2d4847645aac5c3f74798d4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.37
+      value: 4.44
       objectReference: {fileID: 0}
     - target: {fileID: 684050666607719901, guid: 8227d0ed2d4847645aac5c3f74798d4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4415,11 +4415,11 @@ PrefabInstance:
       objectReference: {fileID: 1769217418}
     - target: {fileID: 684050666607719901, guid: 8227d0ed2d4847645aac5c3f74798d4a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.87
+      value: -13.63
       objectReference: {fileID: 0}
     - target: {fileID: 684050666607719901, guid: 8227d0ed2d4847645aac5c3f74798d4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.15
+      value: -1.51
       objectReference: {fileID: 0}
     - target: {fileID: 684050666607719901, guid: 8227d0ed2d4847645aac5c3f74798d4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4517,10 +4517,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4868271683981567355, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
-      propertyPath: explosionParticles
-      value: 
-      objectReference: {fileID: 257063671015119414, guid: 593e50e229723b64491e555b5e1451d6, type: 3}
     - target: {fileID: 7710990267352724522, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
       propertyPath: m_Name
       value: Ship_01
