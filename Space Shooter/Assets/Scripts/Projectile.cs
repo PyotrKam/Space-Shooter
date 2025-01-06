@@ -15,10 +15,45 @@ namespace SpaceShooter
 
         [SerializeField] private ImpactEffect m_ImpactEffectPrefab;
 
+        [Header("Homing Settings")]
+        [SerializeField] private bool isHoming = false;
+        [SerializeField] private float m_TurnSpeed = 5f; 
+
+
         private float m_Timer;
+
+        private Transform m_Target;
+
+        public void SetTarget(Transform target)
+        {
+            m_Target = target; 
+        }
+
 
         private void Update()
         {
+
+            if (isHoming && m_Target != null)
+            {
+                Debug.Log($"The missile is guided to the target: {m_Target.name}");
+                Vector2 direction = (Vector2)m_Target.position - (Vector2)transform.position;
+
+                Rigidbody2D targetRigidbody = m_Target.GetComponent<Rigidbody2D>();
+                if (targetRigidbody != null)
+                {
+                    direction += (Vector2)targetRigidbody.velocity * Time.deltaTime;
+                }
+
+                direction.Normalize();
+
+                
+                transform.up = Vector3.Lerp(transform.up, direction, Time.deltaTime * m_TurnSpeed);
+            }
+
+
+
+
+
             float stepLength = Time.deltaTime * m_Velocity;
 
             Vector2 step = transform.up * stepLength;
@@ -47,7 +82,7 @@ namespace SpaceShooter
             transform.position += new Vector3(step.x, step.y, 0);
         }
 
-        private void OnProjectileLifeEnd(Collider2D col, Vector2 pos) 
+        protected void OnProjectileLifeEnd(Collider2D col, Vector2 pos) 
         {
             Destroy(gameObject);
         

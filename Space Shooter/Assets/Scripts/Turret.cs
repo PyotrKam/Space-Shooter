@@ -15,8 +15,7 @@ namespace SpaceShooter
         public bool CanFire => m_RefireTimer <= 0;
 
         private SpaceShip m_Ship;
-        [SerializeField] private Transform[] m_Target; 
-
+        
         private bool m_SecondaryTurret;
         private float m_TurnSpeed;
 
@@ -28,7 +27,7 @@ namespace SpaceShooter
 
         private void Update()
         {
-            if (m_SecondaryTurret && m_Target != null && m_Target.Length > 0)
+            if (m_SecondaryTurret)
             {
                 Transform closestTarget = FindClosestTarget();
                 if (closestTarget != null)
@@ -62,9 +61,17 @@ namespace SpaceShooter
                 return;
             }
 
+            Transform closestTarget = FindClosestTarget();
+
+
             Projectile projectile = Instantiate(m_TurretProperties.ProjectilePrefab).GetComponent<Projectile>();
             projectile.transform.position = transform.position;
             projectile.transform.up = transform.up;
+
+            if (closestTarget != null)
+            {
+                projectile.SetTarget(closestTarget);
+            }
 
             projectile.SetParentShooter(m_Ship);
 
@@ -84,23 +91,32 @@ namespace SpaceShooter
 
             Debug.Log("Turret " + name + " assigned loadout: " + props.name);
         }
-
+        
         private Transform FindClosestTarget()
         {
             Transform closestTarget = null;
             float closestDistance = Mathf.Infinity;
 
-            foreach (Transform target in m_Target)
+            GameObject[] targets = GameObject.FindGameObjectsWithTag("Asteroids");
+
+            Debug.Log($"Find target: {targets.Length}");
+
+            foreach (GameObject target in targets)
             {
-                float distance = Vector3.Distance(transform.position, target.position);
+                if (target == null) continue;
+
+                float distance = Vector3.Distance(transform.position, target.transform.position);
+
+
                 if (distance < closestDistance)
                 {
                     closestDistance = distance;
-                    closestTarget = target;
+                    closestTarget = target.transform;
                 }
             }
 
             return closestTarget;
         }
+        
     }
 }
