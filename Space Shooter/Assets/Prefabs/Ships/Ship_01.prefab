@@ -49,9 +49,10 @@ MonoBehaviour:
   m_Lifetime: 0
   m_Damage: 0
   m_ImpactEffectPrefab: {fileID: 0}
+  isHoming: 0
+  m_TurnSpeed: 5
   m_Mode: 0
   m_TurretProperties: {fileID: 11400000, guid: 302f60e8a9db0cc4d85c208875a54626, type: 2}
-  m_Target: []
 --- !u!1 &1718648324284573418
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,9 +102,10 @@ MonoBehaviour:
   m_Lifetime: 0
   m_Damage: 0
   m_ImpactEffectPrefab: {fileID: 0}
+  isHoming: 0
+  m_TurnSpeed: 5
   m_Mode: 1
   m_TurretProperties: {fileID: 11400000, guid: 1f8392ee4dec15c4095db17aeaaf791e, type: 2}
-  m_Target: []
 --- !u!1 &7710990267352724522
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +123,7 @@ GameObject:
   - component: {fileID: 6255164389018242345}
   m_Layer: 0
   m_Name: Ship_01
-  m_TagString: Untagged
+  m_TagString: SpaceShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,9 +437,10 @@ MonoBehaviour:
   m_Lifetime: 0
   m_Damage: 0
   m_ImpactEffectPrefab: {fileID: 0}
+  isHoming: 0
+  m_TurnSpeed: 5
   m_Mode: 0
   m_TurretProperties: {fileID: 11400000, guid: 302f60e8a9db0cc4d85c208875a54626, type: 2}
-  m_Target: []
 --- !u!1 &9118380498940308639
 GameObject:
   m_ObjectHideFlags: 0

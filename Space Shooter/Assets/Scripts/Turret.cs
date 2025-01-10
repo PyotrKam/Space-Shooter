@@ -17,7 +17,7 @@ namespace SpaceShooter
         private SpaceShip m_Ship;
         
         private bool m_SecondaryTurret;
-        private float m_TurnSpeed;
+        private float m_TurnSpeedRocket;
 
         #region Unity Event
         private void Start()
@@ -34,10 +34,9 @@ namespace SpaceShooter
                 {
                     Vector2 direction = (Vector2)closestTarget.position - (Vector2)transform.position;
                     direction.Normalize();
-                    transform.up = Vector3.Lerp(transform.up, direction, Time.deltaTime * m_TurnSpeed);
+                    transform.up = Vector3.Lerp(transform.up, direction, Time.deltaTime * m_TurnSpeedRocket);
                 }
             }
-
 
             if (m_RefireTimer > 0)
                 m_RefireTimer -= Time.deltaTime;
@@ -99,7 +98,7 @@ namespace SpaceShooter
 
             GameObject[] targets = GameObject.FindGameObjectsWithTag("Asteroids");
 
-            Debug.Log($"Find target: {targets.Length}");
+            //Debug.Log($"Find target: {targets.Length}");
 
             foreach (GameObject target in targets)
             {

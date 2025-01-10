@@ -19,6 +19,8 @@ namespace SpaceShooter
         [SerializeField] private bool m_Indestructible;
         public bool IsIndestructible => m_Indestructible;
 
+        private bool m_OriginalIndestructibleState;
+
         /// <summary>
         /// Starting hitpoints
         /// </summary>
@@ -57,34 +59,52 @@ namespace SpaceShooter
 
                 OnDeath();
             }
-
         }
         #endregion
         /// <summary>
         /// The event defined when the points are zero or below zero
         /// </summary>
         protected virtual void OnDeath()
-        {
-            
+        {            
             Destroy(gameObject);
             m_EventOnDeath?.Invoke();
         }
 
        private void Explode()
-        {
-            
-
+        {  
             if (explosionParticles != null)
             {
                 ParticleSystem explosionInstance = Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
-                explosionInstance.Play();
-                
+                explosionInstance.Play();                
             }
-
-
         }
-       
+
+        public void SetIndestructible(bool isIndestructible, float duration = 0f)
+        {
+            m_OriginalIndestructibleState = m_Indestructible;
+
+            m_Indestructible = isIndestructible;
+            
+            if (duration > 0f)
+            {
+                StartCoroutine(ResetIndestructibleAfterDelay(duration));
+            }
+        }
+
+        
+        private IEnumerator ResetIndestructibleAfterDelay(float delay)
+        {
+            
+            yield return new WaitForSeconds(delay);
+
+            
+            m_Indestructible = m_OriginalIndestructibleState;
+
+            
+            Debug.Log($"m_Indestructible returned to original value: {m_Indestructible}");
+        }
+
 
         [SerializeField] private UnityEvent m_EventOnDeath;
         public UnityEvent EventOnDeath => m_EventOnDeath;

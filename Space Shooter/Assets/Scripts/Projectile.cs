@@ -29,13 +29,12 @@ namespace SpaceShooter
             m_Target = target; 
         }
 
-
         private void Update()
         {
 
             if (isHoming && m_Target != null)
             {
-                Debug.Log($"The missile is guided to the target: {m_Target.name}");
+                //Debug.Log($"The missile is guided to the target: {m_Target.name}");
                 Vector2 direction = (Vector2)m_Target.position - (Vector2)transform.position;
 
                 Rigidbody2D targetRigidbody = m_Target.GetComponent<Rigidbody2D>();
@@ -45,14 +44,9 @@ namespace SpaceShooter
                 }
 
                 direction.Normalize();
-
-                
+                                
                 transform.up = Vector3.Lerp(transform.up, direction, Time.deltaTime * m_TurnSpeed);
             }
-
-
-
-
 
             float stepLength = Time.deltaTime * m_Velocity;
 
@@ -69,7 +63,6 @@ namespace SpaceShooter
                 }
 
                 OnProjectileLifeEnd(hit.collider, hit.point);
-
             }
 
             m_Timer += Time.deltaTime;
@@ -84,16 +77,14 @@ namespace SpaceShooter
 
         protected void OnProjectileLifeEnd(Collider2D col, Vector2 pos) 
         {
-            Destroy(gameObject);
-        
+            Destroy(gameObject);        
         }
 
         private Destructible m_Parent;
 
         public void SetParentShooter(Destructible parent) 
         {
-            m_Parent = parent;
-        
+            m_Parent = parent;        
         }
     }
 
