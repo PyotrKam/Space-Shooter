@@ -19,7 +19,9 @@ namespace SpaceShooter
         [SerializeField] private bool m_Indestructible;
         public bool IsIndestructible => m_Indestructible;
 
-        private bool m_OriginalIndestructibleState;
+        private bool m_IsTimerRunning = false;
+        private float m_TimerDuration;
+        private float m_TimerEndTime;
 
         /// <summary>
         /// Starting hitpoints
@@ -32,7 +34,20 @@ namespace SpaceShooter
         private int m_CurrentHitPoints;
         public int HitPoints => m_CurrentHitPoints;
 
-        
+        private void Update()
+        {
+            if (m_IsTimerRunning)
+            {
+                if (Time.time >= m_TimerEndTime)
+                {                    
+                    OnTimerEnd();
+                    m_IsTimerRunning = false;
+                }
+            }
+        }
+
+
+
         #endregion
 
         #region Unity Events
@@ -82,28 +97,28 @@ namespace SpaceShooter
 
         public void SetIndestructible(bool isIndestructible, float duration = 0f)
         {
-            m_OriginalIndestructibleState = m_Indestructible;
-
             m_Indestructible = isIndestructible;
-            
+
             if (duration > 0f)
             {
-                StartCoroutine(ResetIndestructibleAfterDelay(duration));
+                StartTimer(duration);
             }
         }
 
-        
-        private IEnumerator ResetIndestructibleAfterDelay(float delay)
+        private void StartTimer(float duration)
         {
-            
-            yield return new WaitForSeconds(delay);
-
-            
-            m_Indestructible = m_OriginalIndestructibleState;
-
-            
-            Debug.Log($"m_Indestructible returned to original value: {m_Indestructible}");
+            m_TimerDuration = duration;
+            m_TimerEndTime = Time.time + duration;
+            m_IsTimerRunning = true;
         }
+
+        private void OnTimerEnd()
+        {            
+            Debug.Log("Timer ended!");
+            m_Indestructible = false; 
+        }
+
+
 
 
         [SerializeField] private UnityEvent m_EventOnDeath;
