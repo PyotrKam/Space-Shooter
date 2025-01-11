@@ -38,6 +38,14 @@ namespace SpaceShooter
         /// </summary>
         private Rigidbody2D m_Rigid;
 
+        #region Speed Boost Variables
+        [Header("Speed Boost")]
+        [SerializeField] private float m_DefaultThrust; 
+        [SerializeField] private float m_DefaultMaxLinearVelocity; 
+        private bool m_IsSpeedBoostActive = false; 
+        private float m_SpeedBoostEndTime;
+        #endregion
+
         #region Public API
 
         /// <summary>
@@ -61,6 +69,9 @@ namespace SpaceShooter
             m_Rigid.mass = m_Mass; //Set the mass
 
             m_Rigid.inertia = 1; //Set the inerial force, to make it easier to balance the balance of power
+
+            m_DefaultThrust = m_Thrust;
+            m_DefaultMaxLinearVelocity = m_MaxLinearVelocity;
 
             InitOffensive();
 
@@ -89,6 +100,30 @@ namespace SpaceShooter
             m_Rigid.AddTorque(-m_Rigid.angularVelocity * (m_Mobility / m_MaxAngularVelocity) * Time.fixedDeltaTime, ForceMode2D.Force); //Rotation of the ship to another side
 
         }
+
+
+        public void ApplySpeedBoost(float multiplier, float duration)
+        {
+            if (m_IsSpeedBoostActive) return; 
+
+            m_Thrust *= multiplier; 
+            m_MaxLinearVelocity *= multiplier; 
+            m_IsSpeedBoostActive = true; 
+            m_SpeedBoostEndTime = Time.time + duration; 
+
+            StartCoroutine(ResetSpeedBoost(duration)); 
+        }
+
+        private IEnumerator ResetSpeedBoost(float duration)
+        {
+            yield return new WaitForSeconds(duration); 
+
+            m_Thrust = m_DefaultThrust; 
+            m_MaxLinearVelocity = m_DefaultMaxLinearVelocity; 
+            m_IsSpeedBoostActive = false; 
+        }
+
+
 
 
         [SerializeField] private Turret[] m_Turrets;
@@ -169,6 +204,8 @@ namespace SpaceShooter
                 m_Turrets[i].AssignLoadout(props);
             }
         }
+
+
 
 
     }

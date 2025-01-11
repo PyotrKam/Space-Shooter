@@ -10,7 +10,8 @@ namespace SpaceShooter
         { 
             AddAmmo,
             AddEnergy,
-            Immortality
+            Immortality,
+            SpeedBoost
         }
 
         [SerializeField] private EffectType m_EffectType;
@@ -18,6 +19,8 @@ namespace SpaceShooter
         [SerializeField] private float m_Value;
 
         [SerializeField]  public Destructible destructibleObject;
+
+        [SerializeField] private float m_EffectDuration;
 
         protected override void OnPickedUp(SpaceShip ship)
         {
@@ -43,6 +46,11 @@ namespace SpaceShooter
             if (m_EffectType == EffectType.Immortality)
             {
                 destructibleObject.SetIndestructible(true, 10f);
+            }
+
+            if (m_EffectType == EffectType.SpeedBoost)
+            {
+                ship.ApplySpeedBoost(m_Value, m_EffectDuration); 
             }
         }
     }
