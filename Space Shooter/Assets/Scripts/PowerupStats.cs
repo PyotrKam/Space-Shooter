@@ -21,13 +21,14 @@ namespace SpaceShooter
 
         protected override void OnPickedUp(SpaceShip ship)
         {
+            
             if (!ship.gameObject.activeInHierarchy)
             {
                 ship.gameObject.SetActive(true);
             }
 
             Destructible destructibleObject = ship.GetComponent<Destructible>();
-
+            
 
             if (m_EffectType == EffectType.AddEnergy)
             {
