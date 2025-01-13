@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cee022099b3a11345a6fe9108e1aeb4c, type: 3}
-  m_Color: {r: 0.6226415, g: 0.48460305, b: 0.48460305, a: 1}
+  m_Color: {r: 0.85660374, g: 0.85660374, b: 0.056568053, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -96,9 +96,8 @@ GameObject:
   - component: {fileID: 2953421285176544936}
   - component: {fileID: 1132945085757855803}
   - component: {fileID: 591217399100223485}
-  - component: {fileID: 8221260855606039675}
   m_Layer: 0
-  m_Name: Asteroid
+  m_Name: SmallAsteroid
   m_TagString: Asteroids
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +113,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.34019998, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8911581491058757032}
@@ -201,16 +200,3 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0016326904, y: 0.0130627155}
   m_Size: {x: 0.6273613, y: 0.8824353}
   m_Direction: 0
---- !u!114 &8221260855606039675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6514095881545936778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef19eb22a7a2de345ae4a3698626fe5b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_prefab: {fileID: 6514095881545936778, guid: ecc7743530ba2c749b84a7d4ae9ebc45, type: 3}
