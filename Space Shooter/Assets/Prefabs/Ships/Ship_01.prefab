@@ -190,14 +190,17 @@ MonoBehaviour:
   explosionParticles: {fileID: 257063671015119414, guid: 593e50e229723b64491e555b5e1451d6, type: 3}
   m_Indestructible: 0
   m_HitPoints: 100
+  m_TeamId: 2
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
   m_Mass: 1
   m_Thrust: 1000
   m_Mobility: 2000
-  m_MaxLinearVelocity: 15
+  m_MaxLinearVelocity: 10
   m_MaxAngularVelocity: 360
+  m_DefaultThrust: 0
+  m_DefaultMaxLinearVelocity: 0
   m_Turrets:
   - {fileID: 262436483436128449}
   - {fileID: 4303086739300082211}

@@ -258,6 +258,7 @@ MonoBehaviour:
   explosionParticles: {fileID: 257063671015119414, guid: 593e50e229723b64491e555b5e1451d6, type: 3}
   m_Indestructible: 0
   m_HitPoints: 100
+  m_TeamId: 1
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -472,12 +473,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_AIBehaiour: 1
   m_PatrolPoint: {fileID: 0}
-  m_NavigationLinear: 0.191
-  m_NavigationAngular: 0.168
-  m_RandomSelectMovePointTime: 0
-  m_FindNewTargetTime: 0
-  m_ShootDelay: 0
-  m_EvadeRayLength: 0
+  m_NavigationLinear: 0.103
+  m_NavigationAngular: 0.309
+  m_RandomSelectMovePointTime: 5
+  m_FindNewTargetTime: 2
+  m_ShootDelay: 3
+  m_EvadeRayLength: 20
 --- !u!1 &7072018768746402872
 GameObject:
   m_ObjectHideFlags: 0

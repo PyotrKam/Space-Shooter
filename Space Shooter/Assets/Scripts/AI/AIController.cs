@@ -39,6 +39,8 @@ namespace SpaceShooter
         private Destructible m_SelectedTarget;
 
         private Timer m_RandomizeDirectionTimer;
+        private Timer m_FireTimer;
+        private Timer m_FindNewTargetTimer;
 
         private void Start()
         {
@@ -103,6 +105,15 @@ namespace SpaceShooter
             
             }
         }
+
+        private void ActionEvadeCollision()
+        {
+            if (Physics2D.Raycast(transform.position, transform.up, m_EvadeRayLength) == true)
+            {
+                m_MovePosition = transform.position + transform.right * 100.0f;
+            }
+        }
+
         private void ActionControlShip()
         {
             m_SpaceShip.ThrustControl = m_NavigationLinear;
@@ -120,20 +131,58 @@ namespace SpaceShooter
 
             float angle = Vector3.SignedAngle(localTargetPosition, Vector3.up, Vector3.forward);           
 
-            angle = Mathf.Clamp(angle, -MAX_ANGLE, MAX_ANGLE) / MAX_ANGLE;
-
-            Debug.Log(angle);
+            angle = Mathf.Clamp(angle, -MAX_ANGLE, MAX_ANGLE) / MAX_ANGLE;            
 
             return -angle;
         }
 
         private void ActionFindNewAttackTarget()
         {
+            if (m_FindNewTargetTimer.IsFinished == true)
+            {
+                m_SelectedTarget = FindNearestDestructibleTarget();
 
+                m_FindNewTargetTimer.Start(m_ShootDelay);
+            }
         }
         private void ActionFire()
         {
+            if (m_SelectedTarget != null)
+            {
+                if (m_FireTimer.IsFinished == true)
+                {
+                    m_SpaceShip.Fire(TurretMode.Primary);
 
+                    m_FireTimer.Start(m_ShootDelay);
+                }
+            }
+        }
+
+        private Destructible FindNearestDestructibleTarget()
+        {
+            float maxDist = float.MaxValue;
+
+            Destructible potentialTarget = null;
+
+            foreach (var v in Destructible.AllDestructibles)
+            {
+                if (v.GetComponent<SpaceShip>() == m_SpaceShip) continue;
+
+                if (v.TeamId == Destructible.TeamIdNeutral) continue;
+
+                if (v.TeamId == m_SpaceShip.TeamId) continue;
+
+                float dist = Vector2.Distance(m_SpaceShip.transform.position, v.transform.position);
+
+                if (dist < maxDist)
+                {
+                    maxDist = dist;
+                    potentialTarget = v;
+                }
+                
+            }
+
+            return potentialTarget;
         }
 
 
@@ -141,15 +190,20 @@ namespace SpaceShooter
         private void InitTimers()
         {
             m_RandomizeDirectionTimer = new Timer(m_RandomSelectMovePointTime);
+            m_FireTimer = new Timer(m_ShootDelay);
+            m_FindNewTargetTimer = new Timer(m_FindNewTargetTime);
         }
 
         private void UpdateTimers()
         {
             m_RandomizeDirectionTimer.RemoveTime(Time.deltaTime);
-
-           // if (m_AIBehaiour == AIBehaviour.Patrol) UpdateBehaviourPatrol();
+            m_FireTimer.RemoveTime(Time.deltaTime);
+            m_FindNewTargetTimer.RemoveTime(Time.deltaTime);
             
-        }
+
+        // if (m_AIBehaiour == AIBehaviour.Patrol) UpdateBehaviourPatrol();
+
+    }
 
         public void SetPatrolBehaviour(AIPointPatrol point)
         {
