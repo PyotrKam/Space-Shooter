@@ -11,7 +11,8 @@ namespace SpaceShooter
         public enum AIBehaviour
         {
             Null,
-            Patrol
+            Patrol,
+            PatrolRoute
         }
 
         [SerializeField] private AIBehaviour m_AIBehaiour;  //Variable for storing behavior
@@ -31,6 +32,11 @@ namespace SpaceShooter
         [SerializeField] private float m_ShootDelay;
 
         [SerializeField] private float m_EvadeRayLength;
+
+        [SerializeField] private Transform[] m_PatrolRoutePoints; 
+        private int m_CurrentRoutePointIndex = 0;
+
+
 
         private SpaceShip m_SpaceShip;
 
@@ -61,7 +67,40 @@ namespace SpaceShooter
             {
                 UpdateBehaviourPatrol();
             }
-        }          
+
+            if (m_AIBehaiour == AIBehaviour.PatrolRoute)
+            {
+                UpdateBehaviourPatrolRoute();
+            }
+        }
+
+        private void UpdateBehaviourPatrolRoute()
+        {
+            if (m_SelectedTarget != null)
+            {
+                Debug.Log("Find Target " + m_SelectedTarget.name);
+
+                float distanceToTarget = Vector2.Distance(transform.position, m_SelectedTarget.transform.position);
+                                
+                if (distanceToTarget < 3.0f) 
+                {
+                    m_MovePosition = m_SelectedTarget.transform.position;
+                }
+                else 
+                {
+                    m_SelectedTarget = null;
+                    UpdateRoutePoint();
+                }
+            }
+            else 
+            {
+                UpdateRoutePoint();
+            }
+
+            ActionControlShip();
+            ActionFindNewAttackTarget();
+            ActionFire();
+        }
 
         private void UpdateBehaviourPatrol()
         {
@@ -142,7 +181,9 @@ namespace SpaceShooter
             {
                 m_SelectedTarget = FindNearestDestructibleTarget();
 
-                m_FindNewTargetTimer.Start(m_ShootDelay);
+                m_FindNewTargetTimer.Start(m_FindNewTargetTime);
+
+                //m_FindNewTargetTimer.Start(m_ShootDelay);
             }
         }
         private void ActionFire()
@@ -183,6 +224,18 @@ namespace SpaceShooter
             }
 
             return potentialTarget;
+        }
+
+        private void UpdateRoutePoint()
+        {
+            if (m_PatrolRoutePoints.Length == 0) return;
+                        
+            m_MovePosition = m_PatrolRoutePoints[m_CurrentRoutePointIndex].position;
+                        
+            if (Vector3.Distance(transform.position, m_MovePosition) < 0.1f)
+            {                
+                m_CurrentRoutePointIndex = (m_CurrentRoutePointIndex + 1) % m_PatrolRoutePoints.Length;
+            }
         }
 
 
