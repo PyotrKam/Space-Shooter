@@ -85,6 +85,7 @@ namespace SpaceShooter
                 if (distanceToTarget < 3.0f) 
                 {
                     m_MovePosition = m_SelectedTarget.transform.position;
+                    UpdateBehaviourPatrol();
                 }
                 else 
                 {
