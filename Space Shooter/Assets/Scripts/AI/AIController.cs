@@ -48,6 +48,8 @@ namespace SpaceShooter
         private Timer m_FireTimer;
         private Timer m_FindNewTargetTimer;
 
+        private Vector3 LeadPoint;
+
         private void Start()
         {
             m_SpaceShip = GetComponent<SpaceShip>();
@@ -76,16 +78,24 @@ namespace SpaceShooter
 
         private void UpdateBehaviourPatrolRoute()
         {
-            if (m_SelectedTarget != null)
-            {
-                Debug.Log("Find Target " + m_SelectedTarget.name);
+            ActionControlShip();
+            ActionFindNewAttackTarget();
 
+            if (m_SelectedTarget != null)
+            {                              
+                
                 float distanceToTarget = Vector2.Distance(transform.position, m_SelectedTarget.transform.position);
                                 
-                if (distanceToTarget < 3.0f) 
+                if (distanceToTarget < 10.0f) 
                 {
-                    m_MovePosition = m_SelectedTarget.transform.position;
-                    
+                    Vector2 leadPoint = MakeLead(m_SelectedTarget, 2.0f);
+                    m_MovePosition = leadPoint;
+
+                    Debug.DrawLine(transform.position, leadPoint, Color.red);
+
+                    //m_MovePosition = m_SelectedTarget.transform.position;
+                    ActionFire();
+
                 }
                 else 
                 {
@@ -98,9 +108,8 @@ namespace SpaceShooter
                 UpdateRoutePoint();
             }
 
-            ActionControlShip();
-            ActionFindNewAttackTarget();
-            ActionFire();
+            
+            
         }
 
         private void UpdateBehaviourPatrol()
@@ -176,6 +185,9 @@ namespace SpaceShooter
             return -angle;
         }
 
+
+
+
         private void ActionFindNewAttackTarget()
         {
             if (m_FindNewTargetTimer.IsFinished == true)
@@ -233,10 +245,27 @@ namespace SpaceShooter
                         
             m_MovePosition = m_PatrolRoutePoints[m_CurrentRoutePointIndex].position;
                         
-            if (Vector3.Distance(transform.position, m_MovePosition) < 0.1f)
+            if (Vector3.Distance(transform.position, m_MovePosition) < 1.0f)
             {                
                 m_CurrentRoutePointIndex = (m_CurrentRoutePointIndex + 1) % m_PatrolRoutePoints.Length;
             }
+        }
+
+
+        private Vector2 MakeLead(Destructible selectedTarget, float TimeLead)
+        {
+            if (selectedTarget == null) return transform.position; 
+
+            Rigidbody2D targetRigidbody = selectedTarget.GetComponent<Rigidbody2D>();
+
+            if (targetRigidbody == null)
+            {
+                return selectedTarget.transform.position;
+            }
+                                    
+            Vector2 targetVelocity = targetRigidbody.velocity;
+                       
+            return (Vector2)selectedTarget.transform.position + targetVelocity * TimeLead;
         }
 
 
