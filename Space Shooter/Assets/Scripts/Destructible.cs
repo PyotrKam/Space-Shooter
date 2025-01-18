@@ -10,7 +10,7 @@ namespace SpaceShooter
     /// </summary>
     public class Destructible : Entity
     {
-       [SerializeField] private ParticleSystem explosionParticles;
+        [SerializeField] private ParticleSystem explosionParticles;
 
         /// <summary>
         /// The object ignores damage
@@ -39,7 +39,7 @@ namespace SpaceShooter
             if (m_IsTimerRunning)
             {
                 if (Time.time >= m_TimerEndTime)
-                {                    
+                {
                     OnTimerEnd();
                     m_IsTimerRunning = false;
                 }
@@ -80,7 +80,7 @@ namespace SpaceShooter
         /// The event defined when the points are zero or below zero
         /// </summary>
         protected virtual void OnDeath()
-        {            
+        {
             Destroy(gameObject);
             m_EventOnDeath?.Invoke();
         }
@@ -110,13 +110,13 @@ namespace SpaceShooter
         [SerializeField] private int m_TeamId;
         public int TeamId => m_TeamId;
 
-       private void Explode()
-        {  
+        private void Explode()
+        {
             if (explosionParticles != null)
             {
                 ParticleSystem explosionInstance = Instantiate(explosionParticles, transform.position, Quaternion.identity);
 
-                explosionInstance.Play();                
+                explosionInstance.Play();
             }
         }
 
@@ -138,9 +138,9 @@ namespace SpaceShooter
         }
 
         private void OnTimerEnd()
-        {            
+        {
             Debug.Log("Timer ended!");
-            m_Indestructible = false; 
+            m_Indestructible = false;
         }
 
 
@@ -148,6 +148,10 @@ namespace SpaceShooter
 
         [SerializeField] private UnityEvent m_EventOnDeath;
         public UnityEvent EventOnDeath => m_EventOnDeath;
+
+
+        [SerializeField] private int m_ScoreValue;
+        public int ScoreValue => m_ScoreValue;
 
     }
 }

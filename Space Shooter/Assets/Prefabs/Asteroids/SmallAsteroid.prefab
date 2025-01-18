@@ -162,9 +162,11 @@ MonoBehaviour:
   explosionParticles: {fileID: 0}
   m_Indestructible: 0
   m_HitPoints: 100
+  m_TeamId: 0
   m_EventOnDeath:
     m_PersistentCalls:
       m_Calls: []
+  m_ScoreValue: 10
 --- !u!70 &591217399100223485
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

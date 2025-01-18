@@ -2027,13 +2027,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4868271683981567355, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
+      propertyPath: m_TeamId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7710990267352724522, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
       propertyPath: m_Name
       value: Ship_01
       objectReference: {fileID: 0}
     - target: {fileID: 7710990267352724522, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

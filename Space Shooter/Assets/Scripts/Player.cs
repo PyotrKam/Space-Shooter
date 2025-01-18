@@ -14,6 +14,13 @@ namespace SpaceShooter
         [SerializeField] private CameraController m_CameraController;
         [SerializeField] private MovementCntroller m_MovementController;
 
+        private int m_Score;
+        private int m_NumKills;
+
+        public int Score => m_Score;
+        public int NumKills => m_NumKills;
+
+
         private void Start()
         {
             m_Ship.EventOnDeath.AddListener(OnShipDeath);
@@ -40,6 +47,18 @@ namespace SpaceShooter
             m_MovementController.SetTargetShip(m_Ship);
 
         }
+
+        public void AddKill()
+        {
+            m_NumKills += 1;
+        }
+
+        public void AddScore(int num)
+        {
+            m_Score += num;
+        }
+
+
     }
 }
 
