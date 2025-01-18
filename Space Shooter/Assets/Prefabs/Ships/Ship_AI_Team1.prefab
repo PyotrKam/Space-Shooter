@@ -298,7 +298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f322248dbfac4841958e736705a8a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AIBehaiour: 1
+  m_AIBehaiour: 2
   m_PatrolPoint: {fileID: 0}
   m_NavigationLinear: 0.103
   m_NavigationAngular: 0.309
@@ -306,9 +306,7 @@ MonoBehaviour:
   m_FindNewTargetTime: 2
   m_ShootDelay: 3
   m_EvadeRayLength: 20
-  m_PatrolRoutePoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  m_PatrolRoutePoints: []
 --- !u!1 &5450174530921212475
 GameObject:
   m_ObjectHideFlags: 0

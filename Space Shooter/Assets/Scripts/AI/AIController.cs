@@ -80,6 +80,7 @@ namespace SpaceShooter
         {
             ActionControlShip();
             ActionFindNewAttackTarget();
+            ActionEvadeCollision();
 
             if (m_SelectedTarget != null)
             {                              
@@ -118,6 +119,7 @@ namespace SpaceShooter
             ActionControlShip();
             ActionFindNewAttackTarget();
             ActionFire();
+            ActionEvadeCollision();
         }
 
         private void ActionFindNewMovePosition()

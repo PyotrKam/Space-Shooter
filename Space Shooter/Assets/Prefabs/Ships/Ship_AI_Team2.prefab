@@ -128,7 +128,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f4ad60d0f3f3fad4db51581c77a1b614, type: 3}
-  m_Color: {r: 0.11372547, g: 0.83137256, b: 0.12472756, a: 1}
+  m_Color: {r: 0.92772514, g: 0.96981126, b: 0.96013063, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f322248dbfac4841958e736705a8a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AIBehaiour: 2
+  m_AIBehaiour: 1
   m_PatrolPoint: {fileID: 0}
   m_NavigationLinear: 0.103
   m_NavigationAngular: 0.309
@@ -479,9 +479,7 @@ MonoBehaviour:
   m_FindNewTargetTime: 2
   m_ShootDelay: 3
   m_EvadeRayLength: 20
-  m_PatrolRoutePoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  m_PatrolRoutePoints: []
 --- !u!1 &5333329867202246827
 GameObject:
   m_ObjectHideFlags: 0
