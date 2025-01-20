@@ -19,6 +19,8 @@ namespace SpaceShooter
 
         public int Score => m_Score;
         public int NumKills => m_NumKills;
+        public int NumLives => m_NumLives;
+
 
 
         private void Start()

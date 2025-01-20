@@ -61,19 +61,23 @@ namespace SpaceShooter
                 {
                     dest.ApplyDamage(m_Damage);
 
-                    if (m_Parent == Player.Instance.ActiveShip)
-                    {
-                        Player.Instance.AddScore(dest.ScoreValue);
 
-                        if (dest is SpaceShip)
+                    if (dest.HitPoints <= 0)
+                    {
+                        if (m_Parent == Player.Instance.ActiveShip)
                         {
-                            if (dest.HitPoints <= 0)
+                            Player.Instance.AddScore(dest.ScoreValue);
+
+                            if (dest is SpaceShip)
                             {
                                 Player.Instance.AddKill();
+                                
                             }
-                        }
 
+                        }
                     }
+
+                   
                 }
 
                 OnProjectileLifeEnd(hit.collider, hit.point);
