@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7628537985383298800}
   - component: {fileID: 5571513739407410651}
+  - component: {fileID: 4022027736294866128}
   m_Layer: 5
   m_Name: HitpointBar
   m_TagString: Untagged
@@ -39,6 +40,19 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5571513739407410651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61921381442602069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ec9bf063033bd42987f987e985462e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Image: {fileID: 5748467783887948384}
+--- !u!114 &4022027736294866128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -213,6 +227,7 @@ GameObject:
   - component: {fileID: 1940132560200493420}
   - component: {fileID: 6756948798962536554}
   - component: {fileID: 3479616197846873492}
+  - component: {fileID: 6427652475517680458}
   m_Layer: 5
   m_Name: KillText
   m_TagString: Untagged
@@ -294,6 +309,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Text: {fileID: 6756948798962536554}
+--- !u!114 &6427652475517680458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578056362300637297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa684fa38d0988b498f948c36ab71d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Text: {fileID: 6756948798962536554}
 --- !u!1 &4197549791752114906
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,6 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3611203487286208089}
   - component: {fileID: 8259392921807535816}
+  - component: {fileID: 7473484159888293864}
   m_Layer: 5
   m_Name: LivesPanel
   m_TagString: Untagged
@@ -333,6 +362,19 @@ RectTransform:
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8259392921807535816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4197549791752114906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9101ff1b9a3b6f43954f58d03f908d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Text: {fileID: 4876636833479827490}
+--- !u!114 &7473484159888293864
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -539,6 +581,7 @@ GameObject:
   - component: {fileID: 8484956571087444115}
   - component: {fileID: 3267226870924373271}
   - component: {fileID: 4052922226395001585}
+  - component: {fileID: 7591409630483481901}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -608,6 +651,19 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Score: 0'
 --- !u!114 &4052922226395001585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5234739172951656086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1ed0bdc96973e45bad8e95d4b9f51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Text: {fileID: 3267226870924373271}
+--- !u!114 &7591409630483481901
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

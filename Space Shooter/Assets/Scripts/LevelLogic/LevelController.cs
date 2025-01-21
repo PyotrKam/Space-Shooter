@@ -88,7 +88,7 @@ namespace SpaceShooter
         {
             if (HasNextLevel == true) SceneManager.LoadScene(m_LevelProperties.NextLevel.SceneName);
 
-            else SceneManager.LoadScene("Main menu");
+            else SceneManager.LoadScene("main_menu");
         }
 
         public void RestartLevel()

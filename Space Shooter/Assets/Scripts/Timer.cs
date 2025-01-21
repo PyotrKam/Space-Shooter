@@ -6,10 +6,10 @@ public class Timer
 
     public Timer(float startTime)
     {
-        Start(startTime);
+        StartTimer(startTime);
     }
 
-    public void Start(float startTime)
+    public void StartTimer(float startTime)
     {
         m_CurrentTime = startTime;
     }

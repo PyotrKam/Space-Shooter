@@ -144,7 +144,7 @@ namespace SpaceShooter
 
                                 m_MovePosition = newPoint;
 
-                                m_RandomizeDirectionTimer.Start(m_RandomSelectMovePointTime);
+                                m_RandomizeDirectionTimer.StartTimer(m_RandomSelectMovePointTime);
                             }                            
                         }
                         else
@@ -196,7 +196,7 @@ namespace SpaceShooter
             {
                 m_SelectedTarget = FindNearestDestructibleTarget();
 
-                m_FindNewTargetTimer.Start(m_FindNewTargetTime);
+                m_FindNewTargetTimer.StartTimer(m_FindNewTargetTime);
 
                 //m_FindNewTargetTimer.Start(m_ShootDelay);
             }
@@ -209,7 +209,7 @@ namespace SpaceShooter
                 {
                     m_SpaceShip.Fire(TurretMode.Primary);
 
-                    m_FireTimer.Start(m_ShootDelay);
+                    m_FireTimer.StartTimer(m_ShootDelay);
                 }
             }
         }
