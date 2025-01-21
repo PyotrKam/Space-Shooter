@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7628537985383298800}
+  - component: {fileID: 5571513739407410651}
   m_Layer: 5
   m_Name: HitpointBar
   m_TagString: Untagged
@@ -37,6 +38,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5571513739407410651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61921381442602069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ec9bf063033bd42987f987e985462e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Image: {fileID: 5748467783887948384}
 --- !u!1 &1775890728997179904
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +212,7 @@ GameObject:
   - component: {fileID: 2609625910792709940}
   - component: {fileID: 1940132560200493420}
   - component: {fileID: 6756948798962536554}
+  - component: {fileID: 3479616197846873492}
   m_Layer: 5
   m_Name: KillText
   m_TagString: Untagged
@@ -266,6 +281,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Kills: 0'
+--- !u!114 &3479616197846873492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578056362300637297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa684fa38d0988b498f948c36ab71d14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Text: {fileID: 6756948798962536554}
 --- !u!1 &4197549791752114906
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3611203487286208089}
+  - component: {fileID: 8259392921807535816}
   m_Layer: 5
   m_Name: LivesPanel
   m_TagString: Untagged
@@ -303,6 +332,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8259392921807535816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4197549791752114906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9101ff1b9a3b6f43954f58d03f908d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Text: {fileID: 4876636833479827490}
 --- !u!1 &4542069931883949381
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +538,7 @@ GameObject:
   - component: {fileID: 1611505516108694385}
   - component: {fileID: 8484956571087444115}
   - component: {fileID: 3267226870924373271}
+  - component: {fileID: 4052922226395001585}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -564,6 +607,19 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 'Score: 0'
+--- !u!114 &4052922226395001585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5234739172951656086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1ed0bdc96973e45bad8e95d4b9f51f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Text: {fileID: 3267226870924373271}
 --- !u!1 &5440076524566956297
 GameObject:
   m_ObjectHideFlags: 0
