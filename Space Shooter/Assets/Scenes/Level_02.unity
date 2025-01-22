@@ -325,7 +325,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DoNotDestroyOnLoad: 0
   m_NumLives: 3
-  m_Ship: {fileID: 120516743}
   m_PlayerShipPrefab: {fileID: 7710990267352724522, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
   m_CameraController: {fileID: 111818067}
   m_MovementController: {fileID: 111818065}
@@ -1800,7 +1799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7710990267352724522, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -7,6 +7,8 @@ namespace SpaceShooter
     [RequireComponent(typeof(Rigidbody2D))]
     public class SpaceShip : Destructible
     {
+        [SerializeField] private Sprite m_PreviewImage;
+
         /// <summary>
         /// Mass for automatic installation at the rigid
         /// </summary>
@@ -37,6 +39,12 @@ namespace SpaceShooter
         /// Saved link to the rigid.
         /// </summary>
         private Rigidbody2D m_Rigid;
+
+        public float MaxLinearVelocity => m_MaxLinearVelocity;
+        public float MaxAngularVelocity => m_MaxAngularVelocity;
+        public Sprite PreviewImage => m_PreviewImage; 
+
+
 
         #region Speed Boost Variables
         [Header("Speed Boost")]

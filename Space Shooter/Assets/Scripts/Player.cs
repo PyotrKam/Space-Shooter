@@ -6,13 +6,18 @@ namespace SpaceShooter
 {
     public class Player : SingletonBase<Player>
     {
+
+        public static SpaceShip SelectedSpaceShip;
+
         [SerializeField] private int m_NumLives;
-        [SerializeField] private SpaceShip m_Ship;
-        [SerializeField] private GameObject m_PlayerShipPrefab;
+        
+        [SerializeField] private SpaceShip m_PlayerShipPrefab;
         public SpaceShip ActiveShip => m_Ship;
 
         [SerializeField] private CameraController m_CameraController;
         [SerializeField] private MovementCntroller m_MovementController;
+
+        private SpaceShip m_Ship;
 
         private int m_Score;
         private int m_NumKills;
@@ -21,11 +26,26 @@ namespace SpaceShooter
         public int NumKills => m_NumKills;
         public int NumLives => m_NumLives;
 
-
+        public SpaceShip ShipPrefab 
+        {
+            get 
+            {
+                if (SelectedSpaceShip == null)
+                {
+                    return m_PlayerShipPrefab;
+                }
+                else
+                {
+                    return SelectedSpaceShip;
+                }
+            
+            }
+        
+        }
 
         private void Start()
         {
-            m_Ship.EventOnDeath.AddListener(OnShipDeath);
+            Respawn();
         }
         private void OnShipDeath()
         {
@@ -39,7 +59,7 @@ namespace SpaceShooter
 
         private void Respawn()
         {
-            var newPlayerShip = Instantiate(m_PlayerShipPrefab);
+            var newPlayerShip = Instantiate(ShipPrefab);
 
             m_Ship = newPlayerShip.GetComponent<SpaceShip>();
 
