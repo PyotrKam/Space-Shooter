@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &595356493243013258
 Transform:
   m_ObjectHideFlags: 0
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EffectType: 2
   m_Value: 0
   destructibleObject: {fileID: 4868271683981567355, guid: 02b36d79b9fc2ee4689952c820ebeb07, type: 3}
+  m_EffectDuration: 0
 --- !u!1 &2729683863519972374
 GameObject:
   m_ObjectHideFlags: 0

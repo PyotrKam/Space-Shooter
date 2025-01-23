@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: primary_base_01
   m_EditorClassIdentifier: 
   m_Mode: 0
-  m_ProjectilePrefab: {fileID: 8644234512196277624, guid: 40fc1e96d4909a747a7cf6a9b7de3574, type: 3}
+  m_ProjectilePrefab: {fileID: 2258207886326775899, guid: 40fc1e96d4909a747a7cf6a9b7de3574, type: 3}
   m_RateOfFire: 0.2
   m_EnergyUsage: 1
   m_AmmoUsage: 0
-  m_LaunchSFX: {fileID: 0}
+  m_LaunchSFX: {fileID: 8300000, guid: b294b7325bc42094f926ecd02029e02f, type: 3}

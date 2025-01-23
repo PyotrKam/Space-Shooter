@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5669171292994499229}
-  - component: {fileID: 1555568250010440060}
   - component: {fileID: 5489978601090159346}
   - component: {fileID: 9058836286986847895}
   - component: {fileID: 7566907190724337432}
   - component: {fileID: -6826884550173132042}
+  - component: {fileID: 4455613382571576519}
   m_Layer: 0
   m_Name: ProjectileRocket
   m_TagString: Untagged
@@ -37,25 +37,6 @@ Transform:
   - {fileID: 2873600464444062825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1555568250010440060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2941860869382234093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09848fd7f508efe4e8321d9401668f96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Nickname: 
-  m_Velocity: 5
-  m_Lifetime: 100
-  m_Damage: 300
-  m_ImpactEffectPrefab: {fileID: 0}
-  isHoming: 1
-  m_TurnSpeed: 5
 --- !u!82 &5489978601090159346
 AudioSource:
   m_ObjectHideFlags: 0
@@ -164,6 +145,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a93a443b658f7646ad7cda008e1d5f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Nickname: 
+  m_Velocity: 10
+  m_Lifetime: 20
+  m_Damage: 10
+  isHoming: 1
+  m_TurnSpeed: 5
   radius: 3
   maxDamage: 100
   explosionForce: 700
@@ -231,6 +218,25 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0070043206, y: -0.001808837}
   m_Size: {x: 0.13857734, y: 0.32629302}
   m_Direction: 0
+--- !u!114 &4455613382571576519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941860869382234093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae238c2732ada234b8bd0a7c17d09655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Nickname: 
+  m_Velocity: 5
+  m_Lifetime: 20
+  m_Damage: 150
+  isHoming: 0
+  m_TurnSpeed: 5
+  m_ImpactEffectPrefab: {fileID: 0}
 --- !u!1 &8115833926574694637
 GameObject:
   m_ObjectHideFlags: 0

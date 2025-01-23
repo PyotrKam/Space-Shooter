@@ -154,8 +154,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6287986407905808116}
-  - component: {fileID: 8644234512196277624}
   - component: {fileID: -2955233786808201219}
+  - component: {fileID: 2258207886326775899}
   m_Layer: 0
   m_Name: ProjectileBase
   m_TagString: Untagged
@@ -179,23 +179,6 @@ Transform:
   - {fileID: 6587166255125496975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8644234512196277624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8815172088978051315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09848fd7f508efe4e8321d9401668f96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Nickname: 
-  m_Velocity: 10
-  m_Lifetime: 1000
-  m_Damage: 100
-  m_ImpactEffectPrefab: {fileID: 0}
 --- !u!82 &-2955233786808201219
 AudioSource:
   m_ObjectHideFlags: 0
@@ -292,3 +275,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2258207886326775899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8815172088978051315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae238c2732ada234b8bd0a7c17d09655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Nickname: 
+  m_Velocity: 15
+  m_Lifetime: 3
+  m_Damage: 10
+  isHoming: 0
+  m_TurnSpeed: 5
+  m_ImpactEffectPrefab: {fileID: 0}
