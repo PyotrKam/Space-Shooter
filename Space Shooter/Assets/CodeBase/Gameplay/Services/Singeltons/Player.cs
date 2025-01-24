@@ -14,13 +14,15 @@ namespace SpaceShooter
         [SerializeField] private SpaceShip m_PlayerShipPrefab;
         public SpaceShip ActiveShip => m_Ship;
 
-        private FollowCamera m_CameraController;
+        private FollowCamera m_FollowCamera;
         private ShipInputController m_ShipInputController;
         private Transform m_SpawnPoint;
 
+        public FollowCamera FollowCamera => m_FollowCamera;
+
         public void Construct(FollowCamera followCamera, ShipInputController shipInputController, Transform spawnPoint)
         {
-            m_CameraController = followCamera;
+            m_FollowCamera = followCamera;
             m_ShipInputController = shipInputController;
             m_SpawnPoint = spawnPoint;
         }
@@ -73,9 +75,9 @@ namespace SpaceShooter
 
             m_Ship.EventOnDeath.AddListener(OnShipDeath);
 
-            m_CameraController.SetTarget(m_Ship.transform);
+            m_FollowCamera.SetTarget(m_Ship.transform);
 
-            //m_ShipInputController.SetTargetShip(m_Ship);
+            m_ShipInputController.SetTargetShip(m_Ship);
 
             m_Ship.EventOnDeath.AddListener(OnShipDeath);
 

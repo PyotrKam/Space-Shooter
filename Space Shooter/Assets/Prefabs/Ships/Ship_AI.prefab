@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Velocity: 0
   m_Lifetime: 0
   m_Damage: 0
-  m_ImpactEffectPrefab: {fileID: 0}
   isHoming: 0
   m_TurnSpeed: 5
+  m_ImpactEffectPrefab: {fileID: 0}
   m_Mode: 0
   m_TurretProperties: {fileID: 11400000, guid: 302f60e8a9db0cc4d85c208875a54626, type: 2}
 --- !u!1 &2835361802124368595
@@ -145,7 +145,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2835361802124368595}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -530,9 +530,9 @@ MonoBehaviour:
   m_Velocity: 0
   m_Lifetime: 0
   m_Damage: 0
-  m_ImpactEffectPrefab: {fileID: 0}
   isHoming: 0
   m_TurnSpeed: 5
+  m_ImpactEffectPrefab: {fileID: 0}
   m_Mode: 1
   m_TurretProperties: {fileID: 11400000, guid: 1f8392ee4dec15c4095db17aeaaf791e, type: 2}
 --- !u!1 &7761396647101784997
@@ -583,8 +583,8 @@ MonoBehaviour:
   m_Velocity: 0
   m_Lifetime: 0
   m_Damage: 0
-  m_ImpactEffectPrefab: {fileID: 0}
   isHoming: 0
   m_TurnSpeed: 5
+  m_ImpactEffectPrefab: {fileID: 0}
   m_Mode: 0
   m_TurretProperties: {fileID: 11400000, guid: 302f60e8a9db0cc4d85c208875a54626, type: 2}

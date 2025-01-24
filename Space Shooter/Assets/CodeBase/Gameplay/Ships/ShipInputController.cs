@@ -16,8 +16,6 @@ namespace SpaceShooter
 
         [SerializeField] private ControlMode m_ControlMode;        
 
-        
-
         public void Construct(VirtualGamePad virtualGamePad)
         {
             m_virtualGamePad = virtualGamePad;
@@ -26,7 +24,7 @@ namespace SpaceShooter
         private SpaceShip m_TargetShip;
         private VirtualGamePad m_virtualGamePad;
 
-        
+        public void SetTargetShip(SpaceShip ship) => m_TargetShip = ship;
 
         private void Start()
         {
