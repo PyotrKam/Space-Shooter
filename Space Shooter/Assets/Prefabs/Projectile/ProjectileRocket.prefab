@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Nickname: 
-  m_Velocity: 10
+  m_Velocity: 5
   m_Lifetime: 20
   m_Damage: 10
   isHoming: 1
@@ -231,10 +231,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Nickname: 
-  m_Velocity: 5
+  m_Velocity: 1
   m_Lifetime: 20
   m_Damage: 150
-  isHoming: 0
+  isHoming: 1
   m_TurnSpeed: 5
   m_ImpactEffectPrefab: {fileID: 0}
 --- !u!1 &8115833926574694637

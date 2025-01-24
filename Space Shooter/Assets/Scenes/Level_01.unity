@@ -127,17 +127,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 595356493243013258, guid: bfdab99d4b1d57f4faa901d1149c7887, type: 3}
   m_PrefabInstance: {fileID: 2286576125813694550}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &115234775 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 163610091024241773, guid: dcc7b5f3465357f4abc3e59b792c8de4, type: 3}
-  m_PrefabInstance: {fileID: 961442591616623811}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b05f943657173d4a8f6c307ae54b3af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &280411380
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,28 +300,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &711309382 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7355847324167368447, guid: dcc7b5f3465357f4abc3e59b792c8de4, type: 3}
-  m_PrefabInstance: {fileID: 961442591616623811}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 360105c8333d9d04384f4c462c585b4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &727339204 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8802768462955271624, guid: dcc7b5f3465357f4abc3e59b792c8de4, type: 3}
-  m_PrefabInstance: {fileID: 961442591616623811}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 360105c8333d9d04384f4c462c585b4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &764670798 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5837298067598495084, guid: 6cabc62d047d7744fa2e95cb717c99bb, type: 3}
@@ -1198,15 +1165,15 @@ PrefabInstance:
     - target: {fileID: 4640322631585392577, guid: 27523985fcf5f4a409ed577afc3590d1, type: 3}
       propertyPath: m_MobileJoystick
       value: 
-      objectReference: {fileID: 115234775}
+      objectReference: {fileID: 0}
     - target: {fileID: 4640322631585392577, guid: 27523985fcf5f4a409ed577afc3590d1, type: 3}
       propertyPath: m_MobileFirePrimary
       value: 
-      objectReference: {fileID: 727339204}
+      objectReference: {fileID: 0}
     - target: {fileID: 4640322631585392577, guid: 27523985fcf5f4a409ed577afc3590d1, type: 3}
       propertyPath: m_MobileFireSecondary
       value: 
-      objectReference: {fileID: 711309382}
+      objectReference: {fileID: 0}
     - target: {fileID: 6349528225939766696, guid: 27523985fcf5f4a409ed577afc3590d1, type: 3}
       propertyPath: m_Camera
       value: 

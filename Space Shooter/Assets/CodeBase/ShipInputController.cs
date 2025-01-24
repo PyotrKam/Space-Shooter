@@ -6,7 +6,7 @@ using Common;
 
 namespace SpaceShooter
 {
-    public class MovementCntroller : MonoBehaviour
+    public class ShipInputController : MonoBehaviour
     {
         public enum ControlMode 
         {
@@ -14,41 +14,37 @@ namespace SpaceShooter
             Mobile       
         }
 
+        [SerializeField] private ControlMode m_ControlMode;        
 
+        
 
-        [SerializeField] private SpaceShip m_TargetShip;
-        public void SetTargetShip(SpaceShip ship) => m_TargetShip = ship;
+        public void Construct(VirtualGamePad virtualGamePad)
+        {
+            m_virtualGamePad = virtualGamePad;
+        }
 
-        [SerializeField] private VirtualJoystick m_MobileJoystick;
+        private SpaceShip m_TargetShip;
+        private VirtualGamePad m_virtualGamePad;
 
-        [SerializeField] private ControlMode m_ControlMode;
-
-        [SerializeField] private PointerClickHold m_MobileFirePrimary;
-        [SerializeField] private PointerClickHold m_MobileFireSecondary;
-
-            
+        
 
         private void Start()
         {
             if (m_ControlMode == ControlMode.Keyboard)
             {
-                m_MobileJoystick.gameObject.SetActive(false);
+                m_virtualGamePad.VirtualJoystick.gameObject.SetActive(false);
 
-                m_MobileFirePrimary.gameObject.SetActive(false);
-                m_MobileFireSecondary.gameObject.SetActive(false);
-
-
+                m_virtualGamePad.MobileFirePrimary.gameObject.SetActive(false);
+                m_virtualGamePad.MobileFireSecondary.gameObject.SetActive(false);
             }
             else
             {
-                m_MobileJoystick.gameObject.SetActive(true);
+                m_virtualGamePad.VirtualJoystick.gameObject.SetActive(true);
 
-                m_MobileFirePrimary.gameObject.SetActive(true);
-                m_MobileFireSecondary.gameObject.SetActive(true);
+                m_virtualGamePad.MobileFirePrimary.gameObject.SetActive(true);
+                m_virtualGamePad.MobileFireSecondary.gameObject.SetActive(true);
             }
-
         }
-
 
         private void Update()
         {
@@ -61,25 +57,23 @@ namespace SpaceShooter
 
         private void ControlMobile()
         {
-            Vector3 dir = m_MobileJoystick.Value;
+            Vector3 dir = m_virtualGamePad.VirtualJoystick.Value;
 
             var dot = Vector2.Dot(dir, m_TargetShip.transform.up);
             var dot2 = Vector2.Dot(dir, m_TargetShip.transform.right);
 
-            if (m_MobileFirePrimary.IsHold == true)
+            if (m_virtualGamePad.MobileFirePrimary.IsHold == true)
             {
                 m_TargetShip.Fire(TurretMode.Primary);
             }
 
-            if (m_MobileFireSecondary.IsHold == true)
+            if (m_virtualGamePad.MobileFireSecondary.IsHold == true)
             {
                 m_TargetShip.Fire(TurretMode.Secondary);
             }
 
-
             m_TargetShip.ThrustControl = Mathf.Max(0, dot);
             m_TargetShip.TorqueControl = -dot2;
-
         }
 
         private void ControlKeyboard()
