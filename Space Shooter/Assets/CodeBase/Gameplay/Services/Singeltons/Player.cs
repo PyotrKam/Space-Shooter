@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,6 +37,8 @@ namespace SpaceShooter
         public int NumKills => m_NumKills;
         public int NumLives => m_NumLives;
 
+        public event Action<int> LivesChanges;
+
         public SpaceShip ShipPrefab 
         {
             get 
@@ -65,6 +68,8 @@ namespace SpaceShooter
             {
                 Respawn();
             }
+
+            LivesChanges?.Invoke(NumLives);
         }
 
         private void Respawn()
@@ -78,8 +83,7 @@ namespace SpaceShooter
             m_FollowCamera.SetTarget(m_Ship.transform);
 
             m_ShipInputController.SetTargetShip(m_Ship);
-
-            m_Ship.EventOnDeath.AddListener(OnShipDeath);
+           
 
         }
 

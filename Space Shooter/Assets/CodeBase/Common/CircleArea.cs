@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Common;
 
@@ -11,7 +9,6 @@ namespace Common
 {
     public class CircleArea : MonoBehaviour
     {
-
         [SerializeField] private float m_Radius;
         public float Radius => m_Radius;
 
@@ -29,7 +26,6 @@ namespace Common
         }
 #endif
     }
-
 }
 
 

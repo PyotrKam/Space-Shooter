@@ -395,6 +395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Star Background
       objectReference: {fileID: 0}
+    - target: {fileID: 3323316134243525733, guid: b20c7b1c3fcec2a49ad26fdd6c7f1614, type: 3}
+      propertyPath: m_Target
+      value: 
+      objectReference: {fileID: 1518252025}
     - target: {fileID: 3641882315385994701, guid: b20c7b1c3fcec2a49ad26fdd6c7f1614, type: 3}
       propertyPath: m_Target
       value: 

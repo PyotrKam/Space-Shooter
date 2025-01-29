@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -13,6 +12,13 @@ namespace Common
     {
         [SerializeField] private ParticleSystem explosionParticles;
 
+        [SerializeField] private UnityEvent m_EventOnDeath;
+        public UnityEvent EventOnDeath => m_EventOnDeath;
+
+
+        [SerializeField] private int m_ScoreValue;
+        public int ScoreValue => m_ScoreValue;
+
         /// <summary>
         /// The object ignores damage
         /// </summary>
@@ -23,6 +29,7 @@ namespace Common
         private bool m_IsTimerRunning = false;
         private float m_TimerDuration;
         private float m_TimerEndTime;
+        private bool _isDead;
 
         /// <summary>
         /// Starting hitpoints
@@ -48,8 +55,6 @@ namespace Common
             }
         }
 
-
-
         #endregion
 
         #region Unity Events
@@ -68,15 +73,16 @@ namespace Common
         /// <param name="damage"> Damage to an oject</param>
         public void ApplyDamage(int damage)
         {
-            if (m_Indestructible) return;
+            if (m_Indestructible || _isDead) 
+                return;
 
             m_CurrentHitPoints -= damage;
 
             if (m_CurrentHitPoints <= 0)
             {
                 Explode();
-
                 OnDeath();
+                _isDead = true;
             }
         }
         #endregion
@@ -88,7 +94,6 @@ namespace Common
             Destroy(gameObject);
             m_EventOnDeath?.Invoke();
         }
-
 
         private static HashSet<Destructible> m_AllDestructibles;
 
@@ -150,12 +155,7 @@ namespace Common
 
 
 
-        [SerializeField] private UnityEvent m_EventOnDeath;
-        public UnityEvent EventOnDeath => m_EventOnDeath;
-
-
-        [SerializeField] private int m_ScoreValue;
-        public int ScoreValue => m_ScoreValue;
+        
 
     }
 }

@@ -276,8 +276,8 @@ MonoBehaviour:
   - {fileID: 4816141378503920664}
   - {fileID: 3968361345608013520}
   m_MaxEnergy: 20
-  m_MaxAmmo: 10
-  m_EnergyRegenPerSecond: 1
+  m_MaxAmmo: 50
+  m_EnergyRegenPerSecond: 5
 --- !u!96 &5325266855196808297
 TrailRenderer:
   serializedVersion: 3

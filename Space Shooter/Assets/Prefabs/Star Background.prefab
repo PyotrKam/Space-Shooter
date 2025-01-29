@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 0}
+  _syncTransforms: []
 --- !u!1 &2491252450377873836
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,6 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6131357467778118554}
+  - component: {fileID: 3323316134243525733}
   m_Layer: 0
   m_Name: Star Background
   m_TagString: Untagged
@@ -146,6 +148,23 @@ Transform:
   - {fileID: 2139561035504417916}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3323316134243525733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2491252450377873836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d601cf6722d5ec042bc4139b91ef7870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Target: {fileID: 0}
+  _syncTransforms:
+  - {fileID: 7344403419154655188}
+  - {fileID: 3641882315385994701}
+  - {fileID: 1875706945454732610}
 --- !u!1 &7682616197562372640
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 0}
+  _syncTransforms: []
 --- !u!1 &8081911588820621132
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,3 +390,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Target: {fileID: 0}
+  _syncTransforms: []

@@ -11,7 +11,7 @@ namespace SpaceShooter
         [Header("Prefabs")]
         [SerializeField] private GameObject m_PlayerHUDPrefab;
         [SerializeField] private GameObject m_LevelGUIPrefab;
-        [SerializeField] private GameObject m_BlackgroundPrefab;
+        [SerializeField] private SyncTransform m_BlackgroundPrefab;
 
         [Header("Dependencies")]
         [SerializeField] private PlayerSpawner m_PlayerSpawner;
@@ -30,8 +30,8 @@ namespace SpaceShooter
             Instantiate(m_PlayerHUDPrefab);
             Instantiate(m_LevelGUIPrefab);
 
-            GameObject background = Instantiate(m_BlackgroundPrefab);
-            background.AddComponent<SyncTransform>().SetTarget(player.FollowCamera.transform);
+            var background = Instantiate(m_BlackgroundPrefab);
+            background.SetTarget(player.FollowCamera.transform);
         }
 
     }

@@ -7,8 +7,9 @@ namespace Common
     public class SyncTransform : MonoBehaviour
     {
         [SerializeField] private Transform m_Target;
+        [SerializeField] private List<SyncTransform> _syncTransforms;
 
-         void Update()
+        private void Update()
         {
             transform.position = new Vector3(m_Target.position.x, m_Target.position.y, transform.position.z);
         }
@@ -16,6 +17,10 @@ namespace Common
         public void SetTarget(Transform target)
         {
             m_Target = target;
+            foreach (var syncTransform in _syncTransforms)
+            {
+                syncTransform.SetTarget(target);
+            }
         }
     }
 }

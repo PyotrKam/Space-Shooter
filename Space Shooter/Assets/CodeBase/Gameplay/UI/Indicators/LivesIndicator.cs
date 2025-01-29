@@ -19,9 +19,20 @@ namespace SpaceShooter
             m_Icon.sprite = Player.Instance.ActiveShip.PreviewImage;
         }
 
-        private void Update()
+        private void OnEnable()
         {
-            int lives = Player.Instance.NumLives;
+            Player.Instance.LivesChanges += OnLivesChange;
+            OnLivesChange(Player.Instance.NumLives);
+        }
+
+        private void OnDisable()
+        {
+            Player.Instance.LivesChanges -= OnLivesChange;
+        }
+
+        private void OnLivesChange(int count)
+        {
+            var lives = Player.Instance.NumLives;
 
             if (lastLives != lives)
             {
