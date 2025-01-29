@@ -150,13 +150,7 @@ namespace Common
         {
             Debug.Log("Timer ended!");
             m_Indestructible = false;
-        }
-
-
-
-
-        
-
+        }  
     }
 }
 

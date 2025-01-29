@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Common
@@ -9,7 +7,6 @@ namespace Common
         [SerializeField] private float m_Lifetime;
 
         private float m_Timer;
-
         private void Update()
         {
             if (m_Timer < m_Lifetime)
@@ -22,8 +19,5 @@ namespace Common
                 Destroy(gameObject);            
             }
         }
-
-
     }
-
 }
